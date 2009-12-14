@@ -1,0 +1,9 @@
+h1. About
+
+This is an example application for "rails-template-inheritance":http://github.com/botanicus/rails-template-inheritance plugin.
+
+h1. Usage
+
+# Install "bundler":http://github.com/wycats/bundler
+# Run @gem bundle --cached@
+# Run @./script/server@ and check the result on @http://localhost:3000@

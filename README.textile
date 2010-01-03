@@ -6,4 +6,5 @@ h1. Usage
 
 # Install "bundler":http://github.com/wycats/bundler
 # Run @gem bundle --cached@
+# Run @cp config/database_sample.yml config/database.yml@
 # Run @./script/server@ and check the result on @http://localhost:3000@

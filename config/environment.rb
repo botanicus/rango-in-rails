@@ -1,4 +1,5 @@
-# Be sure to restart your server when you modify this file
+# encoding: utf-8
+
 if RUBY_VERSION < "1.9.1"
   abort "Don't forget that Rango requires at least Ruby 1.9.1!"
 end
@@ -9,6 +10,11 @@ RAILS_GEM_VERSION = '2.3.5' unless defined? RAILS_GEM_VERSION
 # Setup load path
 require_relative "../gems/environment"
 require_relative "boot"
+
+# Load plugin from parent directory if it has proper name, so it can work locally or from a gem
+if File.basename(File.expand_path(File.join(RAILS_ROOT, ".."))) == "rails-template-inheritance"
+  $LOAD_PATH.unshift(File.join(RAILS_ROOT, "..", "lib"))
+end
 
 Bundler.require_env(Rails.env)
 
@@ -28,14 +34,7 @@ Rails::Initializer.run do |config|
   # you must remove the Active Record framework.
   config.frameworks -= [:active_record, :active_resource, :action_mailer]
 
-  # Activate observers that should always be running
-  # config.active_record.observers = :cacher, :garbage_collector, :forum_observer
-
   # Set Time.zone default to the specified zone and make Active Record auto-convert to this zone.
   # Run "rake -D time" for a list of tasks for finding time zone names.
   config.time_zone = 'UTC'
-
-  # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
-  # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}')]
-  # config.i18n.default_locale = :de
 end

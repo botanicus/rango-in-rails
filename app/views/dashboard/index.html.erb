@@ -4,4 +4,6 @@
 
 <% block(:content) do %>
   Hello from Rango views!
+  <!-- And our own defined helpers should work as well -->
+  Today is <%= time(@time) %>
 <% end %>

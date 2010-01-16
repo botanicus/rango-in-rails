@@ -4,6 +4,20 @@
     <title><%= block(:title) %></title>
   </head>
   <body>
+    <%= flash[:notice] %>
+
+    <!-- You can obviously use Rango helpers -->
     <%= block(:content) %>
+
+    <!-- Also Rails helpers works just fine -->
+    <%= link_to_unless_current "Home", root_path %>
+
+    <!--
+      partials aren't very necessary when we have
+      template-inheritance, but let's try if it works
+      Also note that you can't use render :partial since
+      we have rango templating, not the rails one
+    -->
+    <%= partial "menu", title: "Menu" %>
   </body>
 </html>
